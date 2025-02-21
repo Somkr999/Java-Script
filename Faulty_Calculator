@@ -1,0 +1,26 @@
+"use strict";
+
+const ps=require("prompt-sync");
+const prompt=ps();
+
+console.log("Welcome to the faulty calculator!");
+
+let num1 = prompt("Enter the first number: ");
+let num2 = prompt("Enter the second number: ");
+let opt = prompt("Enter the required operation (+,-,*,/):");
+
+let prob = Math.random();
+
+const fault={
+    "+":"-",
+    "*":"+",
+    "-":"/",
+    "/":"**"
+}
+
+if(prob<=0.1){
+    opt=fault[opt];
+    console.log(`Result is ${eval(`${num1} ${opt} ${num2}`)}`);    
+}else{
+    console.log(`Result is ${eval(`${num1} ${opt} ${num2}`)}`);    
+}
