@@ -1,0 +1,29 @@
+const adj = {
+    0: "Crazy",
+    1: "Amazing",
+    2: "Fire",
+    3: "Super",
+    4: "Cool"
+}
+const names = {
+    0: "Engine",
+    1: "Food",
+    2: "Garments",
+    3: "Shop"
+}
+const word = {
+    0: "Bros",
+    1: "Limited",
+    2: "Hub"
+}
+
+function rand(max) {
+    return Math.floor(Math.random() * max);
+}
+
+for (let i = 0; i < 5; i++) {
+    let rAdj = adj[rand(4)];
+    let rName = names[rand(3)];
+    let rWord = word[rand(2)];
+    console.log(`${rAdj} ${rName} ${rWord}`);
+}
