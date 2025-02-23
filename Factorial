@@ -2,15 +2,17 @@
 const ps=require("prompt-sync");
 const prompt=ps();
 
-let num=prompt("Enter the number: ");
-let num_arr=[];
-for (let i = 1; i <= num; i++) {
-    num_arr.unshift(i);
-}
+let num=parseInt(prompt("Enter the number: "));
+let num_arr=Array.from(Array(num+1).keys());
 
-let fact=num_arr.reduce(factorial);
+// for (let i = 1; i <= num; i++) {
+//     num_arr.unshift(i);
+// }
+// let fact=num_arr.reduce(factorial);
 
-function factorial(accumulator,element) {
-    return accumulator*element;
-}
-console.log(`The factorial of ${num} is \n ${num_arr.join(" * ")} = ${fact}`);
+// function factorial(accumulator,element) {
+//     return accumulator*element;
+// }
+let fact=num_arr.slice(1,).reduce((a,b)=>a*b)
+
+console.log(`The factorial of ${num} is \n ${num_arr.slice(1,).join(" * ")} = ${fact}`);
