@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxes{
+            height: 120px;
+            width:120px;
+            border: 2px solid;
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 120px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="boxes">Box_1</div>
+        <div class="boxes">Box_2</div>
+        <div class="boxes">Box_3</div>
+        <div class="boxes">Box_4</div>
+        <div class="boxes">Box_5</div>
+    </div>
+    <script>
+        const colour={
+            0:"red",
+            1:"blue",
+            2:"green",
+            3:"purple",
+            4:"white",
+            5:"black"
+        }
+        // const cont=document.body.firstElementChild;
+        // cont.children.forEach(element =>color_gen(element));
+        for(let i=0;i<5;i++){
+            let ele=document.body.firstElementChild.children[i];
+            color_gen(ele);
+        }
+        function color_gen(e){
+            let bg_col;
+            let f_col;
+            do {
+                f_col=colour[Math.floor(Math.random()*6)];
+                bg_col=colour[Math.floor(Math.random()*6)];
+            } while (f_col==bg_col);
+            e.style.color=f_col;
+            e.style.backgroundColor=bg_col;
+        }
+    </script>
+</body>
+</html>
