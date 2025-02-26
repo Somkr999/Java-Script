@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .boxes{
-            height: 120px;
-            width:120px;
+        .box{
+            height: 130px;
+            width: 130px;
             border: 2px solid;
             margin: 10px;
             text-align: center;
             vertical-align: middle;
             line-height: 120px;
         }
+        .container{
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="boxes">Box_1</div>
-        <div class="boxes">Box_2</div>
-        <div class="boxes">Box_3</div>
-        <div class="boxes">Box_4</div>
-        <div class="boxes">Box_5</div>
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
     </div>
     <script>
         const colour={
@@ -34,21 +41,39 @@
             4:"white",
             5:"black"
         }
-        // const cont=document.body.firstElementChild;
-        // cont.children.forEach(element =>color_gen(element));
-        for(let i=0;i<5;i++){
-            let ele=document.body.firstElementChild.children[i];
-            color_gen(ele);
-        }
+
+        // for(let i=0;i<5;i++){
+        //     let ele=document.body.firstElementChild.children[i];
+        //     color_gen(ele);
+        // }
+
+        let boxes=document.getElementsByClassName("box");
+        Array.from(boxes).forEach(e=>{
+            color_gen(e);
+        })
+
         function color_gen(e){
-            let bg_col;
-            let f_col;
-            do {
-                f_col=colour[Math.floor(Math.random()*6)];
-                bg_col=colour[Math.floor(Math.random()*6)];
-            } while (f_col==bg_col);
+            // Method 1:
+
+            // let bg_col;
+            // let f_col;
+            // do {
+            //     f_col=colour[Math.floor(Math.random()*6)];
+            //     bg_col=colour[Math.floor(Math.random()*6)];
+            // } while (f_col==bg_col);
+
+            // Method 2:
+            
+            f_col=get_color();
+            bg_col=get_color();
             e.style.color=f_col;
             e.style.backgroundColor=bg_col;
+        }
+        function get_color(){
+            let col1=Math.ceil(Math.random()*255);
+            let col2=Math.ceil(Math.random()*255);
+            let col3=Math.ceil(Math.random()*255);
+            return `rgb(${col1}, ${col2}, ${col3})`;
         }
     </script>
 </body>
